@@ -5,11 +5,11 @@ package main
 import (
 	"time"
 
-	"github.com/kataras/iris/_examples/mvc/login/datasource"
-	"github.com/kataras/iris/_examples/mvc/login/repositories"
-	"github.com/kataras/iris/_examples/mvc/login/services"
-	"github.com/kataras/iris/_examples/mvc/login/web/controllers"
-	"github.com/kataras/iris/_examples/mvc/login/web/middleware"
+	"xiuxiubeidanci/datasource"
+	"xiuxiubeidanci/repositories"
+	"xiuxiubeidanci/services"
+	"xiuxiubeidanci/web/controllers"
+	"xiuxiubeidanci/web/middleware"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"

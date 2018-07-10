@@ -3,8 +3,8 @@ package services
 import (
 	"errors"
 
-	"github.com/kataras/iris/_examples/mvc/login/datamodels"
-	"github.com/kataras/iris/_examples/mvc/login/repositories"
+	"xiuxiubeidanci/datamodels"
+	"xiuxiubeidanci/repositories"
 )
 
 // UserService handles CRUID operations of a user datamodel,
