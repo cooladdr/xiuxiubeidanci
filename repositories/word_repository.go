@@ -9,7 +9,7 @@ import (
 
 
 type WordRepository interface {
-	Select(where string)datamodels.Word,found bool
+	Select(where string)(datamodels.Word,found bool)
 	SelectMany(where, group_by, order_by string, page, size int) (results []datamodels.Word)
 	InsertOrUpdate(wrod datamodels.Word) (updatedWord datamodels.Word, err error)
 	Delete(where string) (deleted bool)
@@ -25,7 +25,7 @@ type wordMysqlRepository struct {
 }
 
 
-func (r *wordMysqlRepository) Select(where string) word datamodels.Word, found bool {
+func (r *wordMysqlRepository) Select(where string) (word datamodels.Word, found bool) {
 
 	sql_str="SELECT id,spelling,in_usa,in_uk,w_type FROM word WHERE " + where
 
