@@ -50,7 +50,7 @@ func (r *wordMysqlRepository) SelectMany(where, group_by, order_by string, page,
 
 
 
-func (r *wordMysqlRepository) InsertOrUpdate(wrod datamodels.Word) (w datamodels.Word,  error) {
+func (r *wordMysqlRepository) InsertOrUpdate(wrod datamodels.Word) (w datamodels.Word, success error) {
 	var w datamodels.Word
 
 	return w, nil
