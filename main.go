@@ -44,7 +44,7 @@ func main() {
 	defer db.Close()
 
 
-	repo := repositories.NewWordRepository(db)
+	_ := repositories.NewWordRepository(db)
 	//wordService := services.NewWordService(repo)
 
 	// "/users" based mvc application.
