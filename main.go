@@ -16,11 +16,8 @@ import (
 
 func main() {
 	app := iris.New()
-	// You got full debug messages, useful when using MVC and you want to make
-	// sure that your code is aligned with the Iris' MVC Architecture.
 	app.Logger().SetLevel("debug")
 
-	// Load the template files.
 	tmpl := iris.HTML("./web/views", ".html").
 		Layout("shared/layout.html").
 		Reload(true)
