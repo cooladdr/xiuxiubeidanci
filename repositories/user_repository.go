@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/datamodels"
+	"github.com/cooladdr/xiuxiubeidanci/datamodels"
 )
 
 // Query represents the visitor and action queries.
