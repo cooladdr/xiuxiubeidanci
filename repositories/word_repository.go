@@ -9,7 +9,7 @@ import (
 
 
 type WordRepository interface {
-	Select(where string)(datamodels.Word,found bool)
+	Select(where string)(w datamodels.Word,found bool)
 	SelectMany(where, group_by, order_by string, page, size int) (results []datamodels.Word)
 	InsertOrUpdate(wrod datamodels.Word) (updatedWord datamodels.Word, err error)
 	Delete(where string) (deleted bool)
