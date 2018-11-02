@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"errors"
-	"sync"
+	"database/sql"
 
 	"github.com/cooladdr/xiuxiubeidanci/datamodels"
 )
