@@ -5,7 +5,7 @@ package main
 import (
 	"github.com/cooladdr/xiuxiubeidanci/datasource"
 	"github.com/cooladdr/xiuxiubeidanci/repositories"
-	"github.com/cooladdr/xiuxiubeidanci/services"
+	_ "github.com/cooladdr/xiuxiubeidanci/services"
 	_ "github.com/cooladdr/xiuxiubeidanci/web/controllers"
 	_ "github.com/cooladdr/xiuxiubeidanci/web/middleware"
 
