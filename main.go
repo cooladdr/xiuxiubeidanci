@@ -5,12 +5,12 @@ package main
 import (
 	"github.com/cooladdr/xiuxiubeidanci/datasource"
 	"github.com/cooladdr/xiuxiubeidanci/repositories"
-	_ "github.com/cooladdr/xiuxiubeidanci/services"
-	_ "github.com/cooladdr/xiuxiubeidanci/web/controllers"
+	"github.com/cooladdr/xiuxiubeidanci/services"
+	"github.com/cooladdr/xiuxiubeidanci/web/controllers"
 	_ "github.com/cooladdr/xiuxiubeidanci/web/middleware"
 
 	"github.com/kataras/iris"
-	_ "github.com/kataras/iris/mvc"
+	"github.com/kataras/iris/mvc"
 	_ "github.com/kataras/iris/sessions"
 )
 
@@ -35,7 +35,6 @@ func main() {
 	})
 
 
-	// Prepare our repositories and services.
 	db, err := datasource.NewMysql()
 	if err != nil {
 		app.Logger().Fatalf("error while loading datasource: %v", err)
@@ -44,33 +43,15 @@ func main() {
 	defer db.Close()
 
 
-	_ = repositories.NewWordRepository(db)
-	//wordService := services.NewWordService(repo)
+	repo := repositories.NewWordRepository(db)
+	wordService := services.NewWordService(repo)
 
-	// "/users" based mvc application.
-	//users := mvc.New(app.Party("/users"))
-	// Add the basic authentication(admin:password) middleware
-	// for the /users based requests.
-	//users.Router.Use(middleware.BasicAuth)
-	// Bind the "userService" to the UserController's Service (interface) field.
-	//users.Register(userService)
-	//users.Handle(new(controllers.UsersController))
+	words := mvc.New(app.Party("/words"))
 
-	// "/user" based mvc application.
-	//sessManager := sessions.New(sessions.Config{
-	//	Cookie:  "sessioncookiename",
-	//	Expires: 24 * time.Hour,
-	//})
-	//user := mvc.New(app.Party("/user"))
-	//user.Register(
-	//	userService,
-	//	sessManager.Start,
-	//)
-	//user.Handle(new(controllers.UserController))
+	words.Register(wordService)
 
-	// http://localhost:8080/noexist
-	// and all controller's methods like
-	// http://localhost:8080/users/1
+	words.Handle(new(controllers.WordController))
+
 	app.Run(
 		// Starts the web server at localhost:8080
 		iris.Addr("localhost:8080"),

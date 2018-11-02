@@ -9,6 +9,7 @@ import (
 
 
 type WordRepository interface {
+	Find(word string)datamodels.Word
 	Select(where string)(datamodels.Word, bool)
 	SelectMany(where, group_by, order_by string, page, size int) []datamodels.Word
 	InsertOrUpdate(wrod datamodels.Word) ( datamodels.Word,  error)
@@ -22,6 +23,18 @@ func NewWordRepository(db *sql.DB) WordRepository {
 
 type wordMysqlRepository struct {
 	db *sql.DB
+}
+
+func (r *wordMysqlRepository) Find(word string) (w datamodels.Word ){
+	sql := "SELECT id,spelling,in_usa,in_uk,w_type FROM word WHERE spelling='" + word + "'"
+	row := r.db.QueryRow(sql)
+
+	err := row.Scan(&w.ID, &w.Spelling, &w.InUSA, &w.InUK, &w.WType)
+	if err != nil {
+		return 
+	}
+	
+	return 
 }
 
 
