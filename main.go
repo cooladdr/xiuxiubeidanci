@@ -8,12 +8,12 @@ import (
 	"github.com/cooladdr/xiuxiubeidanci/datasource"
 	"github.com/cooladdr/xiuxiubeidanci/repositories"
 	"github.com/cooladdr/xiuxiubeidanci/services"
-	"github.com/cooladdr/xiuxiubeidanci/web/controllers"
-	"github.com/cooladdr/xiuxiubeidanci/web/middleware"
+	_ "github.com/cooladdr/xiuxiubeidanci/web/controllers"
+	_ "github.com/cooladdr/xiuxiubeidanci/web/middleware"
 
 	"github.com/kataras/iris"
-	"github.com/kataras/iris/mvc"
-	"github.com/kataras/iris/sessions"
+	_ "github.com/kataras/iris/mvc"
+	_ "github.com/kataras/iris/sessions"
 )
 
 func main() {
