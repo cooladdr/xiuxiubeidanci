@@ -43,17 +43,21 @@ func (r *wordMysqlRepository) Select(where string) (w datamodels.Word, found boo
 
 
 func (r *wordMysqlRepository) SelectMany(where, group_by, order_by string, page, size int)  []datamodels.Word{
-	
+	var wordlist []datamodels.Word
+
+	return wordlist
 }
 
 
 
-func (r *wordMysqlRepository) InsertOrUpdate(wrod datamodels.Word) ( datamodels.Word,  error) {
-	
+func (r *wordMysqlRepository) InsertOrUpdate(wrod datamodels.Word) (w datamodels.Word,  error) {
+	var w datamodels.Word
+
+	return w, nil
 }
 
 
-func (r *wordMysqlRepository) SelectMany(where string) bool{
-	
+func (r *wordMysqlRepository) Delete(where string) bool{
+	return nil
 }
 
