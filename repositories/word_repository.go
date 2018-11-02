@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"xiuxiubeidanci/datamodels"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/datamodels"
 )
 
 

@@ -3,8 +3,8 @@
 package controllers
 
 import (
-	"xiuxiubeidanci/datamodels"
-	"xiuxiubeidanci/services"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/datamodels"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/services"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"

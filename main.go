@@ -5,11 +5,11 @@ package main
 import (
 	"time"
 
-	"xiuxiubeidanci/datasource"
-	"xiuxiubeidanci/repositories"
-	"xiuxiubeidanci/services"
-	"xiuxiubeidanci/web/controllers"
-	"xiuxiubeidanci/web/middleware"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/datasource"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/repositories"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/services"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/web/controllers"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/web/middleware"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"

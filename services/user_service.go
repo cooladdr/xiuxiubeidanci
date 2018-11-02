@@ -3,8 +3,8 @@ package services
 import (
 	"errors"
 
-	"xiuxiubeidanci/datamodels"
-	"xiuxiubeidanci/repositories"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/datamodels"
+	"github.com/cooladdr/xiuxiubeidanci/xiuxiubeidanci/repositories"
 )
 
 // UserService handles CRUID operations of a user datamodel,
