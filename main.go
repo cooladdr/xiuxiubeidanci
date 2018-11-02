@@ -3,8 +3,6 @@
 package main
 
 import (
-	"time"
-
 	"github.com/cooladdr/xiuxiubeidanci/datasource"
 	"github.com/cooladdr/xiuxiubeidanci/repositories"
 	"github.com/cooladdr/xiuxiubeidanci/services"
@@ -47,7 +45,7 @@ func main() {
 
 
 	repo := repositories.NewWordRepository(db)
-	wordService := services.NewWordService(repo)
+	//wordService := services.NewWordService(repo)
 
 	// "/users" based mvc application.
 	//users := mvc.New(app.Party("/users"))

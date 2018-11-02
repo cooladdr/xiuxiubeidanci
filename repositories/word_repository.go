@@ -16,7 +16,7 @@ type WordRepository interface {
 }
 
 
-func NewWordRepository(db *sql.DB) *wordMysqlRepository {
+func NewWordRepository(db *sql.DB) WordRepository {
 	return &wordMysqlRepository{db: db}
 }
 
