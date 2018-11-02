@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"errors"
+
 	"database/sql"
 
 	"github.com/cooladdr/xiuxiubeidanci/datamodels"
@@ -30,9 +30,8 @@ func (r *wordMysqlRepository) Select(where string) (w datamodels.Word, found boo
 	sql_str :="SELECT id,spelling,in_usa,in_uk,w_type FROM word WHERE " + where
 
 	row := r.db.QueryRow(sql_str)
-	defer row.Close()
 
-	err = row.Scan(&w.ID, &w.Spelling, &w.InUSA, &w.InUK, &w.WType)
+	err := row.Scan(&w.ID, &w.Spelling, &w.InUSA, &w.InUK, &w.WType)
 	if err != nil {
 		found = false
 		return 
