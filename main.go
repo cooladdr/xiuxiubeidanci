@@ -36,37 +36,39 @@ func main() {
 		ctx.View("shared/error.html")
 	})
 
-	// ---- Serve our controllers. ----
 
 	// Prepare our repositories and services.
-	db, err := datasource.LoadUsers(datasource.Memory)
+	db, err := datasource.NewMysql()
 	if err != nil {
-		app.Logger().Fatalf("error while loading the users: %v", err)
+		app.Logger().Fatalf("error while loading datasource: %v", err)
 		return
 	}
-	repo := repositories.NewUserRepository(db)
-	userService := services.NewUserService(repo)
+	defer db.Close()
+
+
+	repo := repositories.NewWordRepository(db)
+	wordService := services.NewWordService(repo)
 
 	// "/users" based mvc application.
-	users := mvc.New(app.Party("/users"))
+	//users := mvc.New(app.Party("/users"))
 	// Add the basic authentication(admin:password) middleware
 	// for the /users based requests.
-	users.Router.Use(middleware.BasicAuth)
+	//users.Router.Use(middleware.BasicAuth)
 	// Bind the "userService" to the UserController's Service (interface) field.
-	users.Register(userService)
-	users.Handle(new(controllers.UsersController))
+	//users.Register(userService)
+	//users.Handle(new(controllers.UsersController))
 
 	// "/user" based mvc application.
-	sessManager := sessions.New(sessions.Config{
-		Cookie:  "sessioncookiename",
-		Expires: 24 * time.Hour,
-	})
-	user := mvc.New(app.Party("/user"))
-	user.Register(
-		userService,
-		sessManager.Start,
-	)
-	user.Handle(new(controllers.UserController))
+	//sessManager := sessions.New(sessions.Config{
+	//	Cookie:  "sessioncookiename",
+	//	Expires: 24 * time.Hour,
+	//})
+	//user := mvc.New(app.Party("/user"))
+	//user.Register(
+	//	userService,
+	//	sessManager.Start,
+	//)
+	//user.Handle(new(controllers.UserController))
 
 	// http://localhost:8080/noexist
 	// and all controller's methods like
