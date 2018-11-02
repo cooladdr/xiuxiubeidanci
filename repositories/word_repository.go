@@ -58,6 +58,6 @@ func (r *wordMysqlRepository) InsertOrUpdate(wrod datamodels.Word) (w datamodels
 
 
 func (r *wordMysqlRepository) Delete(where string) bool{
-	return nil
+	return true
 }
 
