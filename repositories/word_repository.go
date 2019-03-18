@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"fmt"
 
 	"database/sql"
 
@@ -28,6 +29,9 @@ type wordMysqlRepository struct {
 func (r *wordMysqlRepository) Find(word string) (w datamodels.Word ){
 	sql := "SELECT id,spelling,in_usa,in_uk,w_type FROM word WHERE spelling='" + word + "'"
 	row := r.db.QueryRow(sql)
+
+	fmt.Printf("%t",row)
+
 
 	err := row.Scan(&w.ID, &w.Spelling, &w.InUSA, &w.InUK, &w.WType)
 	if err != nil {

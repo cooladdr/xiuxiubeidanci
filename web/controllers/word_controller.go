@@ -18,7 +18,7 @@ type WordController struct{
 
 func (c *WordController) Get() datamodels.Word {
 
-	return c.Service.Find("Get")
+	return c.Service.Find("get")
 }
 
 

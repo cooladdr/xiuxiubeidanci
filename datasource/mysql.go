@@ -10,7 +10,7 @@ import (
 
 
 func NewMysql() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "root:@/xiuxiubeidanci?charset=utf8mb4")
+	db, err := sql.Open("mysql", "root:zxgmariadb@/xiuxiubeidanci?charset=utf8mb4")
 	if err != nil {
 		return nil, err
 	}
